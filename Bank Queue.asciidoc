@@ -1,0 +1,79 @@
++*In[2]:*+
+[source, ipython3]
+----
+class BankQueue:
+    def __init__(self):
+        self.queue = []  # Initialize an empty queue list
+
+    def enqueue(self, customer):
+        self.queue.append(customer)  # Add the customer to the end of the queue
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.pop(0)  # Remove and return the first customer from the queue
+        else:
+            return None
+
+    def is_empty(self):
+        return len(self.queue) == 0  # Check if the queue is empty
+
+    def size(self):
+        return len(self.queue)  # Return the current size of the queue
+
+    def display_queue(self):
+        print("Current Queue:")
+        for customer in self.queue:
+            print(customer)  # Display the details of each customer in the queue
+
+# Example usage
+bank_queue = BankQueue()
+
+customer1 = {'name': 'Customer 1', 'account': '123456'}
+customer2 = {'name': 'Customer 2', 'account': '789012'}
+customer3 = {'name': 'Customer 3', 'account': '345678'}
+customer4 = {'name': 'Customer 4', 'account': '901234'}
+
+bank_queue.enqueue(customer1)  # Enqueue customer1
+bank_queue.enqueue(customer2)  # Enqueue customer2
+bank_queue.enqueue(customer3)  # Enqueue customer3
+bank_queue.enqueue(customer4)  # Enqueue customer4
+
+print("Initial Queue:")
+bank_queue.display_queue()  # Display the initial state of the queue
+
+served_customer = bank_queue.dequeue()  # Dequeue the next customer from the queue
+if served_customer:
+    print("\nServed Customer:")
+    print(served_customer)  # Display the details of the served customer
+
+print("\nUpdated Queue:")
+bank_queue.display_queue()  # Display the updated state of the queue
+
+----
+
+
++*Out[2]:*+
+----
+Initial Queue:
+Current Queue:
+{'name': 'Customer 1', 'account': '123456'}
+{'name': 'Customer 2', 'account': '789012'}
+{'name': 'Customer 3', 'account': '345678'}
+{'name': 'Customer 4', 'account': '901234'}
+
+Served Customer:
+{'name': 'Customer 1', 'account': '123456'}
+
+Updated Queue:
+Current Queue:
+{'name': 'Customer 2', 'account': '789012'}
+{'name': 'Customer 3', 'account': '345678'}
+{'name': 'Customer 4', 'account': '901234'}
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
